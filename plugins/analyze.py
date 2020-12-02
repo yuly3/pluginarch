@@ -10,9 +10,8 @@ class Analyze:
         return self.analysis
 
 
-def listen(arg):
+def listen(arg, write_func):
     print('received from ' + arg)
     analyzer = Analyze()
-    with open('./result.txt', mode='w') as file:
-        file.write(send_topic + '\n' + analyzer.analyze())
+    write_func(send_topic, analyzer.analyze())
     print('send to ' + send_topic)

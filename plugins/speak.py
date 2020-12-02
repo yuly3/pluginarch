@@ -10,9 +10,8 @@ class Speak:
         return self.can_speak
 
 
-def listen(arg):
+def listen(arg, write_func):
     print('received from ' + arg)
     speaker = Speak()
-    with open('./result.txt', mode='w') as file:
-        file.write(send_topic + '\n' + speaker.speak())
+    write_func(send_topic, speaker.speak())
     print('send to ' + send_topic)

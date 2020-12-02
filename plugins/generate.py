@@ -10,9 +10,8 @@ class Generate:
         return self.sentence
 
 
-def listen(arg):
+def listen(arg, write_func):
     print('received from ' + arg)
     generater = Generate()
-    with open('./result.txt', mode='w') as file:
-        file.write(send_topic + '\n' + generater.generate())
+    write_func(send_topic, generater.generate())
     print('send to ' + send_topic)
