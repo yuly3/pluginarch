@@ -22,7 +22,6 @@ def main():
         with open('./result.txt', mode='r') as file:
             send_topic = file.readline().rstrip()
             message = file.read()
-            print(message)
             pub.sendMessage(topicName=send_topic, arg=message)
 
 
