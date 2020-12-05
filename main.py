@@ -4,16 +4,16 @@ import importlib
 from pubsub import pub
 
 
-def write_to_file(send_topic, message):
+def write_to_file(send_topic: str, message: str) -> None:
     with open('./result.txt', mode='w') as file:
         file.write(send_topic + '\n' + message)
 
 
-def listen(arg):
+def listen(arg: str) -> None:
     print('received from ' + arg)
 
 
-def main():
+def main() -> None:
     file_paths = glob.glob('./plugins/*.py')
     modules = []
     for file_path in file_paths:

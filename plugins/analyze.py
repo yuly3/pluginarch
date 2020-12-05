@@ -4,13 +4,13 @@ send_topic = 'analyze'
 
 class Analyze:
     def __init__(self):
-        self.analysis = 'analyze'
+        self.analysis: str = 'analyze'
     
-    def analyze(self):
+    def analyze(self) -> str:
         return self.analysis
 
 
-def listen(arg, write_func):
+def listen(arg: str, write_func) -> None:
     print('received from ' + arg)
     analyzer = Analyze()
     write_func(send_topic, analyzer.analyze())
